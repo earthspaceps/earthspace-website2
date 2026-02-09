@@ -1,0 +1,520 @@
+/* 
+   EarthSpace Project Solutions LLP 
+   Design System: Clean, Engineering-Led, Premium
+   Colors: Charcoal, Muted Blue/Green, White, Light Grey
+   Font: Inter
+*/
+
+:root {
+    --primary-color: #2C3E50;
+    /* Deep Charcoal Blue */
+    --secondary-color: #34495E;
+    /* Slate Grey */
+    --accent-color: #27AE60;
+    /* Muted Engineering Green - for subtle highlights */
+    --text-dark: #1A1A1A;
+    --text-light: #F4F4F4;
+    --text-muted: #666666;
+    --bg-light: #F9FAFB;
+    --bg-white: #FFFFFF;
+    --border-color: #E5E7EB;
+
+    --spacing-section: 5rem;
+    --container-width: 1200px;
+
+    --font-main: 'Inter', sans-serif;
+    --transition-speed: 0.3s;
+}
+
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--text-dark);
+    line-height: 1.6;
+    background-color: var(--bg-white);
+    -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-speed);
+}
+
+ul {
+    list-style: none;
+}
+
+/* Utilities */
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.section {
+    padding: var(--spacing-section) 0;
+}
+
+.bg-light {
+    background-color: var(--bg-light);
+}
+
+.bg-dark {
+    background-color: var(--primary-color);
+}
+
+.text-white {
+    color: var(--text-light) !important;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mt-4 {
+    margin-top: 2rem;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    font-weight: 600;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--primary-color);
+}
+
+/* Footer uses outline style for contrast or white */
+.footer .btn-primary {
+    background-color: var(--text-light);
+    color: var(--primary-color);
+    border-color: var(--text-light);
+}
+
+.footer .btn-primary:hover {
+    background-color: transparent;
+    color: var(--text-light);
+}
+
+
+/* Navbar */
+.navbar {
+    position: sticky;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    z-index: 1000;
+    padding: 1rem 0;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    height: 50px;
+    /* Adjust based on logo aspect ratio */
+    width: auto;
+    object-fit: contain;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-links a {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--secondary-color);
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.btn-nav {
+    padding: 0.5rem 1.2rem;
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+    color: var(--primary-color) !important;
+}
+
+.btn-nav:hover {
+    background-color: var(--primary-color);
+    color: white !important;
+}
+
+/* Hero Section */
+.hero {
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: #f0f2f5;
+    /* Ideally this would be a subtle architectural image background */
+    background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.hero-content {
+    text-align: center;
+    max-width: 800px;
+    z-index: 2;
+}
+
+.hero-headline {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    letter-spacing: -1px;
+}
+
+.hero-headline .highlight {
+    color: var(--secondary-color);
+    font-weight: 300;
+    display: block;
+    /* Break line visually if needed */
+}
+
+.hero-subhead {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* About Section */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--accent-color);
+    margin-top: 0.5rem;
+}
+
+.text-center .section-title::after {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.about-text p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+}
+
+.structural-pattern {
+    width: 100%;
+    height: 400px;
+    background-color: var(--secondary-color);
+    /* Simple geometric CSS pattern placeholder */
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255, 255, 255, 0.05) 10px, rgba(255, 255, 255, 0.05) 20px);
+    border-radius: 4px;
+}
+
+/* Services Grid */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.service-card {
+    background: var(--bg-white);
+    padding: 2.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border-color: var(--primary-color);
+}
+
+.icon-box {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--border-color);
+    /* Subtle numbering */
+    margin-bottom: 1rem;
+}
+
+.service-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.service-card ul li {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 1.2rem;
+}
+
+.service-card ul li::before {
+    content: '•';
+    color: var(--accent-color);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* Approach / Timeline */
+.process-timeline {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4rem;
+    position: relative;
+    flex-wrap: wrap;
+    /* Fallback */
+    gap: 2rem;
+}
+
+.process-timeline::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--border-color);
+    z-index: 1;
+}
+
+.process-step {
+    flex: 1;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    background: var(--bg-white);
+    /* To hide line behind text if needed, but strict layout logic here */
+    padding: 0 1rem;
+}
+
+.step-number {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+}
+
+.process-step h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.process-step p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* Why EarthSpace */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.feature-item h5 {
+    color: var(--text-light);
+    /* Since bg is dark */
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+}
+
+.feature-item p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+}
+
+/* Sectors */
+.sectors-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.sector-item {
+    background-color: var(--bg-light);
+    padding: 1rem 2rem;
+    border: 1px solid var(--border-color);
+    font-weight: 600;
+    color: var(--secondary-color);
+    border-radius: 50px;
+    /* Pill shape */
+}
+
+/* Footer */
+.footer {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 6rem 0 2rem;
+}
+
+.footer-headline {
+    color: var(--text-light);
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.footer-subhead {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-info {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.95rem;
+}
+
+.copyright {
+    margin-top: 4rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1.5rem;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-headline {
+        font-size: 2.5rem;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .process-timeline {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .process-timeline::before {
+        display: none;
+    }
+
+    .process-step {
+        text-align: left;
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .step-number {
+        margin-bottom: 0;
+        min-width: 40px;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        padding: 1rem 0;
+        border-bottom: 1px solid var(--border-color);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+
+    .hamburger span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background: var(--primary-color);
+        margin: 5px 0;
+    }
+}
