@@ -459,16 +459,35 @@ ul {
 
 @media (max-width: 960px) {
     :root {
-        --dd-spacing: 5rem;
+        --dd-spacing: 4rem;
+        /* Reduced spacing for mobile */
+    }
+
+    .container {
+        padding: 0 1.5rem;
+        /* Standard mobile padding */
+    }
+
+    .hero {
+        padding-top: 60px;
+        /* Reduced top padding */
+        height: auto;
+        min-height: 90vh;
+        padding-bottom: 4rem;
+        /* Add breathing room at bottom */
     }
 
     .hero-headline {
-        font-size: 3.5rem;
+        font-size: 2.5rem;
+        /* Smaller readable size */
+        margin-bottom: 1.5rem;
     }
 
     .hero-subhead {
         border-left: none;
         padding-left: 0;
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
     }
 
     .about-grid {
@@ -476,16 +495,50 @@ ul {
         gap: 3rem;
     }
 
+    /* Make visual hidden or smaller on mobile if needed, or keep stacked */
+    .about-visual {
+        min-height: 300px;
+    }
+
+    /* Service cards interaction for touch */
+    .service-card {
+        padding: 2.5rem 1.5rem;
+        /* More comfortable touch area */
+    }
+
     .process-timeline {
         flex-direction: column;
-        gap: 3rem;
+        gap: 0;
+        margin-top: 3rem;
     }
 
     .process-step {
         border-top: none;
-        border-left: 1px solid var(--black);
+        border-left: 2px solid var(--black);
+        /* Thicker line for visibility */
         padding-left: 2rem;
         padding-top: 0;
+        padding-bottom: 3rem;
+        /* Space between steps */
+        margin-left: 1rem;
+        /* Indent line */
+    }
+
+    .process-step:last-child {
+        padding-bottom: 0;
+        border-left: 2px solid transparent;
+        /* Hide line for last item */
+    }
+
+    .step-number {
+        position: absolute;
+        left: -48px;
+        /* Align number with line */
+        top: -10px;
+        background: var(--white);
+        padding: 0.5rem 0;
+        z-index: 2;
+        font-size: 2rem;
     }
 
     /* Mobile Nav */
