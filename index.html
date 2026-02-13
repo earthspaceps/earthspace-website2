@@ -30,10 +30,12 @@
         content="EarthSpace Project Solutions LLP is a multidisciplinary project development and construction management firm based in Kerala. We exist to close the gap between design intent and on-site reality.">
 
     <link rel="stylesheet" href="style.css">
-    <!-- Using Inter for a clean, technical, and modern look -->
+    <!-- Using Be Vietnam Pro for a modern, clean, and professional look -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 
     <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
@@ -67,6 +69,8 @@
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="insights.html">Insights</a></li>
                 <li><a href="#approach">Approach</a></li>
                 <li><a href="#sectors">Sectors</a></li>
                 <li><a href="#contact" class="btn-nav">Contact Us</a></li>
@@ -92,7 +96,7 @@
     </header>
 
     <!-- About Section -->
-    <section id="about" class="section about-section">
+    <section id="about" class="section about-section fade-in-section">
         <div class="container">
             <div class="about-grid">
                 <div class="about-text">
@@ -115,7 +119,7 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="section bg-light">
+    <section id="services" class="section bg-light fade-in-section">
         <div class="container">
             <h2 class="section-title text-center">What We Do</h2>
             <div class="services-grid">
@@ -168,7 +172,7 @@
     </section>
 
     <!-- Approach Section -->
-    <section id="approach" class="section">
+    <section id="approach" class="section fade-in-section">
         <div class="container">
             <h2 class="section-title">The EarthSpace Way: <br>Control & Predictability</h2>
             <div class="process-timeline">
@@ -202,27 +206,32 @@
     </section>
 
     <!-- Why EarthSpace Section -->
-    <section id="why-us" class="section bg-dark text-white">
+    <section id="why-us" class="section bg-dark text-white fade-in-section">
         <div class="container">
             <h2 class="section-title text-white">Why Partner With Us?</h2>
             <div class="features-grid">
                 <div class="feature-item">
+                    <span class="feature-number">01</span>
                     <h5>Single-Point Responsibility</h5>
                     <p>One accountability partner for design, planning, and build.</p>
                 </div>
                 <div class="feature-item">
+                    <span class="feature-number">02</span>
                     <h5>Reduced Client Risk</h5>
                     <p>Integrated delivery minimizes change orders and delays.</p>
                 </div>
                 <div class="feature-item">
+                    <span class="feature-number">03</span>
                     <h5>Engineering-Led Decisions</h5>
                     <p>We solve problems with data and technical expertise.</p>
                 </div>
                 <div class="feature-item">
+                    <span class="feature-number">04</span>
                     <h5>Transparent Reporting</h5>
                     <p>You remain informed with clear, regular project updates.</p>
                 </div>
                 <div class="feature-item">
+                    <span class="feature-number">05</span>
                     <h5>Long-Term Asset Thinking</h5>
                     <p>Building with the lifecycle and value of the asset in mind.</p>
                 </div>
@@ -231,7 +240,7 @@
     </section>
 
     <!-- Sectors Section -->
-    <section id="sectors" class="section">
+    <section id="sectors" class="section fade-in-section">
         <div class="container">
             <h2 class="section-title text-center">Sectors We Serve</h2>
             <div class="sectors-grid">
@@ -292,19 +301,80 @@
                     </div>
                     <h3>Mixed-Use</h3>
                     <p>Integrated Townships</p>
+                    <p class="mt-2 text-sm opacity-60">Example: Koodathai Integrated Township (Proposed)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flagship Portfolio Teaser -->
+    <section class="section bg-light flagship-teaser fade-in-section">
+        <div class="container">
+            <div class="featured-project-box">
+                <div class="featured-project-text">
+                    <span class="hero-tag">Flagship Proposal</span>
+                    <h2 class="section-title">Koodathai Integrated Township</h2>
+                    <p class="project-description">A landmark engineering proposal in Kozhikode. This multi-zone master
+                        plan integrates complex logistics, business, and healthcare infrastructures into a seamless
+                        urban ecosystem.</p>
+                    <div class="project-tags">
+                        <span>Master Planning</span>
+                        <span>Integrated Development</span>
+                        <span>Multi-Zone Coordination</span>
+                    </div>
+                    <a href="projects.html" class="btn btn-primary mt-4">Explore Full Portfolio</a>
+                </div>
+                <div class="featured-project-visual">
+                    <img src="image/Koodathai.PNG" alt="Koodathai Master Plan">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer / CTA -->
-    <footer id="contact" class="footer">
+    <footer id="contact" class="footer fade-in-section">
         <div class="container text-center">
             <h2 class="footer-headline">Build With Clarity.</h2>
             <p class="footer-subhead">If you are planning a project and want certainty before committing capital, let’s
                 talk.</p>
 
-            <a href="mailto:Earthspaceps@gmail.com" class="btn btn-primary btn-large">Contact Us</a>
+            <a href="mailto:Earthspaceps@gmail.com" class="btn btn-white btn-large">Contact Us</a>
+
+            <div class="social-links">
+                <a href="https://www.instagram.com/earthspace_ps" target="_blank" class="social-icon"
+                    aria-label="Instagram">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.791-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.209-1.791 4-4 4zm6.406-11.845c.796 0 1.441.645 1.441 1.441s-.645 1.441-1.441 1.441-1.441-.645-1.441-1.441.645-1.441 1.441-1.441z" />
+                    </svg>
+                </a>
+                <a href="https://www.youtube.com/channel/UCRZUXjo_99y_-NgjE0u0Baw" target="_blank" class="social-icon"
+                    aria-label="YouTube">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
+                    </svg>
+                </a>
+                <a href="https://wa.me/918086898741" target="_blank" class="social-icon" aria-label="WhatsApp Direct">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+                    </svg>
+                </a>
+                <a href="https://whatsapp.com/channel/0029VbCQCYfFi8xkyhGeIs0h" target="_blank" class="social-icon"
+                    aria-label="WhatsApp Channel">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M18 7c0-1.1-.9-2-2-2s-2 .9-2 2 .9 2 2 2 2-.9 2-2zM6 11c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0-4c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0-4c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm4.25 10c0-1.1-.9-2-2-2s-2 .9-2 2 .9 2 2 2 2-.9 2-2zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
+                    </svg>
+                </a>
+                <a href="#" target="_blank" class="social-icon" aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.989v-9.983c0-7.759-8.663-7.54-11.019-3.202v-2.816z" />
+                    </svg>
+                </a>
+            </div>
 
             <div class="contact-info mt-4">
                 <p><strong>EarthSpace Project Solutions LLP</strong></p>
@@ -317,8 +387,10 @@
         </div>
     </footer>
 
+    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu
             const hamburger = document.querySelector('.hamburger');
             const navLinks = document.querySelector('.nav-links');
 
@@ -328,15 +400,85 @@
                 });
             }
 
-            // Close menu when clicking a link
             document.querySelectorAll('.nav-links a').forEach(link => {
                 link.addEventListener('click', () => {
                     navLinks.classList.remove('active');
                 });
             });
+
+            // Lenis Smooth Scroll
+            const lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                direction: 'vertical',
+                gestureDirection: 'vertical',
+                smooth: true,
+                mouseMultiplier: 1,
+                smoothTouch: false,
+                touchMultiplier: 2,
+                infinite: false,
+            })
+
+            function raf(time) {
+                lenis.raf(time)
+                requestAnimationFrame(raf)
+            }
+
+            requestAnimationFrame(raf)
+
+            // Scroll Reveal Animation
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in-section').forEach(section => {
+                observer.observe(section);
+            });
         });
     </script>
 
+    <div class="wa-buddy-container">
+        <div id="wa-buddy-bubble" class="wa-buddy-bubble">
+            <p id="wa-buddy-text">Your land has potential. Your current layout? We need to talk. ☕</p>
+        </div>
+        <a href="https://wa.me/918086898741" target="_blank" class="wa-buddy-icon"
+            aria-label="Chat with the Specialist">
+            <svg viewBox="0 0 24 24">
+                <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+            </svg>
+        </a>
+    </div>
+
+    <script>
+        const buddyMessages = [
+            "Your land has potential. Your current layout? We need to talk. ☕",
+            "I don't just solve spatial logic, I solve 'where-is-my-ROI' logic. Chat now?",
+            "Stop doom-scrolling and start master-planning! 🏗️",
+            "Is your plot of land feeling lonely? Let's give it a township. 🚀"
+        ];
+        const bubble = document.getElementById('wa-buddy-bubble');
+        const textEl = document.getElementById('wa-buddy-text');
+
+        function showBuddyMessage() {
+            const msg = buddyMessages[Math.floor(Math.random() * buddyMessages.length)];
+            textEl.textContent = msg;
+            bubble.classList.add('visible');
+            setTimeout(() => bubble.classList.remove('visible'), 8000);
+        }
+
+        // Initial delay then periodic popups
+        setTimeout(showBuddyMessage, 3000);
+        setInterval(showBuddyMessage, 30000);
+    </script>
 </body>
 
 </html>
