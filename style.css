@@ -2496,7 +2496,10 @@ html.lenis body {
     opacity: 0;
     visibility: hidden;
     transform: translateY(20px);
-    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        visibility 0.4s;
+    z-index: 2501;
 }
 
 .ai-chat-window.active {
@@ -2538,13 +2541,16 @@ html.lenis body {
 
 .ai-chat-messages {
     flex: 1;
-    min-height: 0;
+    min-height: 200px;
+    /* Ensure Chrome recognizes scroll area */
     padding: 1.5rem;
     overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    display: block;
     background: var(--grey-light);
+    position: relative;
+    z-index: 10;
 }
 
 .chat-msg {
@@ -2552,6 +2558,14 @@ html.lenis body {
     padding: 0.8rem 1rem;
     font-size: 0.9rem;
     line-height: 1.5;
+    margin-bottom: 1rem;
+    /* Replace flex gap */
+    position: relative;
+    z-index: 2;
+}
+
+.chat-msg:last-child {
+    margin-bottom: 0;
 }
 
 .chat-msg.bot {

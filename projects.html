@@ -475,7 +475,22 @@
             };
 
             chatToggle.addEventListener('click', toggleChat);
-            closeChat.addEventListener('click', () => chatWindow.classList.remove('active'));
+            closeChat.addEventListener('click', () => {
+                chatWindow.classList.remove('active');
+            });
+
+            // Prevent background scrolling when using mouse wheel over chat
+            chatMessages.addEventListener('wheel', (e) => {
+                const delta = e.deltaY;
+                const isAtTop = chatMessages.scrollTop === 0 && delta < 0;
+                const isAtBottom = chatMessages.scrollTop + chatMessages.clientHeight >= chatMessages.scrollHeight && delta > 0;
+
+                if (!isAtTop && !isAtBottom) {
+                    // Lock scroll to chat window
+                    e.preventDefault();
+                    chatMessages.scrollTop += delta;
+                }
+            }, { passive: false });
 
             chatForm.addEventListener('submit', (e) => {
                 e.preventDefault();
