@@ -660,6 +660,111 @@
         setTimeout(showBuddyMessage, 3000);
         setInterval(showBuddyMessage, 30000);
     </script>
+    <!-- AI Construction Assistant -->
+    <div class="ai-chat-container">
+        <div id="ai-chat-window" class="ai-chat-window">
+            <div class="ai-chat-header">
+                <div>
+                    <h3>Construction Assistant</h3>
+                    <div class="ai-chat-status">
+                        <span class="status-dot"></span>
+                        Engineering-Led AI
+                    </div>
+                </div>
+                <button id="close-ai-chat"
+                    style="background:none; border:none; color:white; cursor:pointer; font-size:1.2rem;">&times;</button>
+            </div>
+            <div id="ai-chat-messages" class="ai-chat-messages">
+                <div class="chat-msg bot">
+                    Hello. I am the EarthSpace Construction Assistant. I can help you with technical queries regarding
+                    project feasibility, Kerala building rules, and development strategies. How can I assist you today?
+                </div>
+            </div>
+            <div id="typing-indicator" class="typing-indicator" style="display: none; padding: 0 1.5rem 0.5rem 1.5rem;">
+                Assistant is thinking...</div>
+            <form id="ai-chat-form" class="ai-chat-input-area">
+                <input type="text" id="ai-chat-input" placeholder="Ask about building rules, ROI..." autocomplete="off">
+                <button type="submit" class="ai-chat-send">Send</button>
+            </form>
+        </div>
+        <button id="ai-chat-toggle" class="ai-chat-toggle" aria-label="Open Construction Assistant">
+            <svg viewBox="0 0 24 24">
+                <path
+                    d="M12 2C6.47 2 2 6.47 2 12c0 1.73.44 3.36 1.23 4.79l-1.23 4.21 4.21-1.23C7.64 21.56 9.27 22 12 22c5.53 0 10-4.47 10-10S17.53 2 12 2zm0 18c-1.46 0-2.84-.4-4.04-1.09l-2.58.75.75-2.58C5.4 15.88 5 14.5 5 13c0-3.86 3.14-7 7-7s7 3.14 7 7-3.14 7-7 7z" />
+                <circle cx="12" cy="13" r="1.5" />
+                <circle cx="8" cy="13" r="1.5" />
+                <circle cx="16" cy="13" r="1.5" />
+            </svg>
+        </button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const chatToggle = document.getElementById('ai-chat-toggle');
+            const chatWindow = document.getElementById('ai-chat-window');
+            const closeChat = document.getElementById('close-ai-chat');
+            const chatForm = document.getElementById('ai-chat-form');
+            const chatInput = document.getElementById('ai-chat-input');
+            const chatMessages = document.getElementById('ai-chat-messages');
+            const typingIndicator = document.getElementById('typing-indicator');
+
+            const constructionKnowledge = [
+                { keywords: ['kerala building rules', 'kbr', 'permits', 'approvals'], response: "In Kerala, building permits are governed by the KMBR/KPBR. Key factors include FSI, set-backs, and parking requirements. Would you like us to conduct a statutory audit for your site?" },
+                { keywords: ['roi', 'investment', 'returns', 'feasibility'], response: "Our approach prioritizes ROI by identifying the 'Highest and Best Use' of land. We can provide a technical due diligence framework for your next investment." },
+                { keywords: ['turnkey', 'end-to-end', 'cost'], response: "Our turnkey construction management covers everything from design to handover. We use rigorous SOPs to ensure technical quality." },
+                { keywords: ['hello', 'hi', 'who are you', 'help'], response: "I am the EarthSpace Technical Assistant. Ask me about construction regulations, project feasibility, or our turnkey project delivery model." }
+            ];
+
+            const addMessage = (text, sender) => {
+                const msg = document.createElement('div');
+                msg.classList.add('chat-msg', sender);
+                let formattedText = text
+                    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                    .replace(/\*(.*?)\*/g, '<em>$1</em>')
+                    .replace(/^\s*[\*\-]\s+(.*)/gm, '• $1')
+                    .replace(/\n/g, '<br>');
+                msg.innerHTML = formattedText;
+                chatMessages.appendChild(msg);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            };
+
+            const toggleChat = () => {
+                chatWindow.classList.toggle('active');
+                if (chatWindow.classList.contains('active')) {
+                    chatInput.focus();
+                }
+            };
+
+            chatToggle.addEventListener('click', toggleChat);
+            closeChat.addEventListener('click', () => chatWindow.classList.remove('active'));
+
+            chatForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const text = chatInput.value.trim();
+                if (!text) return;
+
+                addMessage(text, 'user');
+                chatInput.value = '';
+
+                // Live AI Backend logic
+                typingIndicator.style.display = 'block';
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+
+                const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwEUwDzEPfE8ayrs6jXawE-Nviw78O8RrteFcQUgUWgNimeH__JxwbmHR_f0KnzKi-z/exec';
+
+                fetch(`${SCRIPT_URL}?chat_query=${encodeURIComponent(text)}`, { method: 'POST' })
+                    .then(response => response.text())
+                    .then(aiResponse => {
+                        typingIndicator.style.display = 'none';
+                        addMessage(aiResponse, 'bot');
+                    })
+                    .catch(error => {
+                        typingIndicator.style.display = 'none';
+                        addMessage("Technical error. Please try again or contact us directly.", 'bot');
+                    });
+            });
+        });
+    </script>
 </body>
 
 </html>
