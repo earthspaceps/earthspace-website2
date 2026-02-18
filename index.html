@@ -659,7 +659,11 @@
 
                 msg.innerHTML = formattedText;
                 chatMessages.appendChild(msg);
-                chatMessages.scrollTop = chatMessages.scrollHeight;
+
+                // Force scroll after render
+                requestAnimationFrame(() => {
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                });
             };
 
             const toggleChat = () => {

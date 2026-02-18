@@ -725,7 +725,10 @@
                     .replace(/\n/g, '<br>');
                 msg.innerHTML = formattedText;
                 chatMessages.appendChild(msg);
-                chatMessages.scrollTop = chatMessages.scrollHeight;
+
+                requestAnimationFrame(() => {
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                });
             };
 
             const toggleChat = () => {
