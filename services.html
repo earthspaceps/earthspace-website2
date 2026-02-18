@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services | EarthSpace Project Solutions</title>
+    <title>Services | EarthSpace - Architects & Construction in Kozhikode</title>
     <meta name="description"
-        content="EarthSpace Project Solutions: Architecture & Design, Project Management, Construction & Turnkey, and Development Advisory services.">
+        content="EarthSpace offers Architectural Design, Project Management, and Turnkey Construction services in Kozhikode (Calicut). We lead projects from feasibility to handover.">
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,10 +24,11 @@
             </a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="services.html" class="active">Services</a></li>
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="insights.html">Insights</a></li>
-                <li><a href="index.html#contact" class="btn-nav">Contact Us</a></li>
+                <li><a href="javascript:void(0)" class="btn-nav contact-trigger">Contact Us</a></li>
             </ul>
             <div class="hamburger">
                 <span></span>
@@ -109,7 +110,7 @@
             <p class="footer-subhead">If you are planning a project and want certainty before committing capital, let’s
                 talk.</p>
 
-            <a href="mailto:Earthspaceps@gmail.com" class="btn btn-white btn-large">Contact Us</a>
+            <a href="javascript:void(0)" class="btn btn-white btn-large contact-trigger">Contact Us</a>
 
             <div class="social-links">
                 <a href="https://www.instagram.com/earthspace_ps" target="_blank" class="social-icon"
@@ -149,7 +150,7 @@
 
             <div class="contact-info mt-4">
                 <p><strong>EarthSpace Project Solutions LLP</strong></p>
-                <p>Kerala, India</p>
+                <p>Kozhikode, Kerala, India</p>
                 <p>Earthspaceps@gmail.com</p>
             </div>
             <div class="copyright">
@@ -207,8 +208,124 @@
             document.querySelectorAll('.fade-in-section').forEach(section => {
                 observer.observe(section);
             });
+
+            // Contact Modal Logic
+            const modal = document.getElementById('contact-modal');
+            const modalClose = document.querySelector('.modal-close');
+            const contactTriggers = document.querySelectorAll('.contact-trigger');
+            const contactForm = document.getElementById('contact-form');
+            const formStatus = document.getElementById('form-status');
+
+            const openModal = () => {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            };
+
+            const closeModal = () => {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            };
+
+            contactTriggers.forEach(trigger => {
+                trigger.addEventListener('click', openModal);
+            });
+
+            if (modalClose) modalClose.addEventListener('click', closeModal);
+            if (modal) {
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) closeModal();
+                });
+            }
+
+            // Form Submission
+            const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwEUwDzEPfE8ayrs6jXawE-Nviw78O8RrteFcQUgUWgNimeH__JxwbmHR_f0KnzKi-z/exec';
+
+            if (contactForm) {
+                contactForm.addEventListener('submit', e => {
+                    e.preventDefault();
+                    const submitBtn = contactForm.querySelector('button[type="submit"]');
+                    submitBtn.disabled = true;
+                    submitBtn.textContent = 'Sending...';
+                    formStatus.textContent = 'Processing your request...';
+
+                    const formData = new FormData(contactForm);
+
+                    if (!SCRIPT_URL || SCRIPT_URL.includes('...')) {
+                        setTimeout(() => {
+                            formStatus.style.color = '#2e7d32';
+                            formStatus.textContent = '✓ Thank you. We will contact you shortly.';
+                            contactForm.reset();
+                            submitBtn.disabled = false;
+                            submitBtn.textContent = 'Send Message';
+                            setTimeout(closeModal, 2000);
+                        }, 1500);
+                        return;
+                    }
+
+                    fetch(SCRIPT_URL, { method: 'POST', body: formData })
+                        .then(response => {
+                            formStatus.style.color = '#2e7d32';
+                            formStatus.textContent = '✓ Thank you. We will contact you shortly.';
+                            contactForm.reset();
+                            submitBtn.disabled = false;
+                            submitBtn.textContent = 'Send Message';
+                            setTimeout(closeModal, 2500);
+                        })
+                        .catch(error => {
+                            formStatus.style.color = '#c62828';
+                            formStatus.textContent = 'An error occurred. Please try again.';
+                            submitBtn.disabled = false;
+                            submitBtn.textContent = 'Send Message';
+                        });
+                });
+            }
         });
     </script>
+
+    <!-- Contact Modal HTML -->
+    <div id="contact-modal" class="modal-overlay">
+        <div class="modal-container">
+            <span class="modal-close">&times;</span>
+            <div class="modal-header">
+                <h2>Discuss Your Project</h2>
+                <p>Tell us about your development goals and we'll get back to you with a technical perspective.</p>
+            </div>
+            <form id="contact-form" class="contact-form">
+                <div class="form-group">
+                    <label for="modal-name">Full Name</label>
+                    <input type="text" id="modal-name" name="name" required placeholder="John Doe">
+                </div>
+                <div class="form-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div>
+                        <label for="modal-email">Email</label>
+                        <input type="email" id="modal-email" name="email" required placeholder="john@email.com">
+                    </div>
+                    <div>
+                        <label for="modal-phone">Phone</label>
+                        <input type="tel" id="modal-phone" name="phone" required placeholder="+91 00000 00000">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="modal-interest">Primary Interest</label>
+                    <select id="modal-interest" name="interest" required>
+                        <option value="" disabled selected>Select an option</option>
+                        <option value="Residential">Residential Development</option>
+                        <option value="Commercial">Commercial Project</option>
+                        <option value="Advisory">Development Advisory</option>
+                        <option value="Turnkey">Turnkey Construction</option>
+                        <option value="Other">Other Query</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="modal-message">Project Brief</label>
+                    <textarea id="modal-message" name="message" rows="4"
+                        placeholder="Briefly describe your land or project vision..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary full-width">Send Message</button>
+                <div id="form-status" class="form-status"></div>
+            </form>
+        </div>
+    </div>
 </body>
 
 </html>

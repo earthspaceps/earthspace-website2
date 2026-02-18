@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Insights | EarthSpace Project Solutions</title>
+    <title>Insights | EarthSpace - Real Estate Development in Kozhikode</title>
     <meta name="description"
-        content="EarthSpace Insights: Strategic frameworks, webinars, and programs designed to help investors, landowners, and developers make technically sound real estate decisions.">
+        content="EarthSpace Insights: Strategic frameworks and programs for investors and landowners in Kozhikode. Helping you make technically sound real estate decisions.">
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,10 +24,11 @@
             </a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="insights.html" class="active">Insights</a></li>
-                <li><a href="#contact" class="btn-nav">Contact Us</a></li>
+                <li><a href="javascript:void(0)" class="btn-nav contact-trigger">Contact Us</a></li>
             </ul>
             <div class="hamburger">
                 <span></span>
@@ -272,7 +273,7 @@
                 regulation, geometry, access, and market context. We help you identify the spatial logic that transforms
                 land into long-term value.</p>
             <div class="hero-ctas" style="justify-content: center;">
-                <a href="mailto:Earthspaceps@gmail.com" class="btn btn-primary">Discuss Your Land Potential</a>
+                <a href="javascript:void(0)" class="btn btn-primary contact-trigger">Discuss Your Land Potential</a>
             </div>
         </div>
     </section>
@@ -322,8 +323,9 @@
 
             <div class="contact-info mt-4">
                 <p><strong>EarthSpace Project Solutions LLP</strong></p>
-                <p>Kerala, India</p>
+                <p>Kozhikode, Kerala, India</p>
                 <p>Earthspaceps@gmail.com</p>
+                <a href="javascript:void(0)" class="btn btn-white btn-large contact-trigger mt-3">Contact Us</a>
             </div>
             <div class="copyright">
                 &copy; 2026 EarthSpace Project Solutions LLP. All Rights Reserved.
@@ -507,8 +509,124 @@
                     }, 1000);
                 });
             }
+
+            // Contact Modal Logic
+            const modal = document.getElementById('contact-modal');
+            const modalClose = document.querySelector('.modal-close');
+            const contactTriggers = document.querySelectorAll('.contact-trigger');
+            const contactForm = document.getElementById('contact-form');
+            const formStatus = document.getElementById('form-status');
+
+            const openModalTrigger = () => {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            };
+
+            const closeModalTrigger = () => {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            };
+
+            contactTriggers.forEach(trigger => {
+                trigger.addEventListener('click', openModalTrigger);
+            });
+
+            if (modalClose) modalClose.addEventListener('click', closeModalTrigger);
+            if (modal) {
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) closeModalTrigger();
+                });
+            }
+
+            // Form Submission
+            const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwEUwDzEPfE8ayrs6jXawE-Nviw78O8RrteFcQUgUWgNimeH__JxwbmHR_f0KnzKi-z/exec';
+
+            if (contactForm) {
+                contactForm.addEventListener('submit', e => {
+                    e.preventDefault();
+                    const submitBtn = contactForm.querySelector('button[type="submit"]');
+                    submitBtn.disabled = true;
+                    submitBtn.textContent = 'Sending...';
+                    formStatus.textContent = 'Processing your request...';
+
+                    const formData = new FormData(contactForm);
+
+                    if (!SCRIPT_URL || SCRIPT_URL.includes('...')) {
+                        setTimeout(() => {
+                            formStatus.style.color = '#2e7d32';
+                            formStatus.textContent = '✓ Thank you. We will contact you shortly.';
+                            contactForm.reset();
+                            submitBtn.disabled = false;
+                            submitBtn.textContent = 'Send Message';
+                            setTimeout(closeModalTrigger, 2000);
+                        }, 1500);
+                        return;
+                    }
+
+                    fetch(SCRIPT_URL, { method: 'POST', body: formData })
+                        .then(response => {
+                            formStatus.style.color = '#2e7d32';
+                            formStatus.textContent = '✓ Thank you. We will contact you shortly.';
+                            contactForm.reset();
+                            submitBtn.disabled = false;
+                            submitBtn.textContent = 'Send Message';
+                            setTimeout(closeModalTrigger, 2500);
+                        })
+                        .catch(error => {
+                            formStatus.style.color = '#c62828';
+                            formStatus.textContent = 'An error occurred. Please try again.';
+                            submitBtn.disabled = false;
+                            submitBtn.textContent = 'Send Message';
+                        });
+                });
+            }
         });
     </script>
+
+    <!-- Contact Modal HTML -->
+    <div id="contact-modal" class="modal-overlay">
+        <div class="modal-container">
+            <span class="modal-close">&times;</span>
+            <div class="modal-header">
+                <h2>Discuss Your Project</h2>
+                <p>Tell us about your development goals and we'll get back to you with a technical perspective.</p>
+            </div>
+            <form id="contact-form" class="contact-form">
+                <div class="form-group">
+                    <label for="modal-name">Full Name</label>
+                    <input type="text" id="modal-name" name="name" required placeholder="John Doe">
+                </div>
+                <div class="form-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div>
+                        <label for="modal-email">Email</label>
+                        <input type="email" id="modal-email" name="email" required placeholder="john@email.com">
+                    </div>
+                    <div>
+                        <label for="modal-phone">Phone</label>
+                        <input type="tel" id="modal-phone" name="phone" required placeholder="+91 00000 00000">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="modal-interest">Primary Interest</label>
+                    <select id="modal-interest" name="interest" required>
+                        <option value="" disabled selected>Select an option</option>
+                        <option value="Residential">Residential Development</option>
+                        <option value="Commercial">Commercial Project</option>
+                        <option value="Advisory">Development Advisory</option>
+                        <option value="Turnkey">Turnkey Construction</option>
+                        <option value="Other">Other Query</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="modal-message">Project Brief</label>
+                    <textarea id="modal-message" name="message" rows="4"
+                        placeholder="Briefly describe your land or project vision..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary full-width">Send Message</button>
+                <div id="form-status" class="form-status"></div>
+            </form>
+        </div>
+    </div>
     <div class="wa-buddy-container">
         <div id="wa-buddy-bubble" class="wa-buddy-bubble">
             <p id="wa-buddy-text">Your land has potential. Your current layout? We need to talk. ☕</p>

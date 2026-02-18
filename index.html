@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EarthSpace Project Solutions | Engineering-Led Project Development</title>
+    <title>Architects & Construction Management in Kozhikode | EarthSpace Project Solutions</title>
     <meta name="description"
-        content="EarthSpace Project Solutions LLP is a multidisciplinary project development and construction management firm based in Kerala. We exist to close the gap between design intent and on-site reality.">
+        content="EarthSpace Project Solutions LLP is the leading engineering-led project development firm in Kozhikode (Calicut). We offer architectural design, construction management, and turnkey solutions.">
     <link rel="icon" type="image/png" href="favicon.png">
     <meta name="keywords"
-        content="EarthSpace Project, Construction Management Kerala, Turnkey Construction, Project Development Kerala, Engineering Consultants, EarthSpace Solutions, Civil Engineering Kerala, Architectural Design Kerala">
+        content="EarthSpace Project, Construction Management Kozhikode, Architects in Calicut, Project Management Kerala, Turnkey Construction Calicut, Engineering Consultants Kozhikode, Civil Engineering Kerala, Architectural Design Calicut">
     <meta name="author" content="EarthSpace Project Solutions LLP">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://earthspaceps.github.io/earthspace-website2/">
@@ -18,16 +18,16 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="EarthSpace Project">
     <meta property="og:url" content="https://earthspaceps.github.io/earthspace-website2/">
-    <meta property="og:title" content="EarthSpace Project Solutions | Engineering-Led Project Development">
+    <meta property="og:title" content="Top Architects & Builders in Kozhikode | EarthSpace Project Solutions">
     <meta property="og:description"
-        content="EarthSpace Project Solutions LLP is a multidisciplinary project development and construction management firm based in Kerala. We exist to close the gap between design intent and on-site reality.">
+        content="EarthSpace Project Solutions LLP is a multidisciplinary project development and construction management firm based in Kozhikode. We bridge the gap between design intent and on-site reality.">
     <meta property="og:image" content="https://earthspaceps.github.io/earthspace-website2/logo.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="EarthSpace Project Solutions | Engineering-Led Project Development">
+    <meta property="twitter:title" content="Top Architects & Builders in Kozhikode | EarthSpace Project Solutions">
     <meta property="twitter:description"
-        content="EarthSpace Project Solutions LLP is a multidisciplinary project development and construction management firm based in Kerala. We exist to close the gap between design intent and on-site reality.">
+        content="EarthSpace Project Solutions LLP is a multidisciplinary project development and construction management firm based in Kozhikode. We bridge the gap between design intent and on-site reality.">
 
     <link rel="stylesheet" href="style.css">
     <!-- Using Inter for a clean, technical, and modern look -->
@@ -43,9 +43,10 @@
       "name": "EarthSpace Project Solutions LLP",
       "alternateName": "EarthSpace Project",
       "image": "https://earthspaceps.github.io/earthspace-website2/logo.png",
-      "description": "EarthSpace Project Solutions: Multidisciplinary project development, design, and construction management firm based in Kerala, India.",
+      "description": "EarthSpace Project Solutions: Multidisciplinary project development, architectural design, and construction management firm based in Kozhikode, Kerala.",
       "address": {
         "@type": "PostalAddress",
+        "addressLocality": "Kozhikode",
         "addressRegion": "Kerala",
         "addressCountry": "IN"
       },
@@ -61,15 +62,16 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container nav-container">
-            <a href="#" class="logo-link">
+            <a href="index.html" class="logo-link">
                 <img src="logo.png" alt="EarthSpace Project Solutions" class="logo-img">
             </a>
             <ul class="nav-links">
                 <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="insights.html">Insights</a></li>
-                <li><a href="#contact" class="btn-nav">Contact Us</a></li>
+                <li><a href="javascript:void(0)" class="btn-nav contact-trigger">Contact Us</a></li>
             </ul>
             <div class="hamburger">
                 <span></span>
@@ -86,7 +88,7 @@
                     class="highlight">Delivered with Engineering Discipline</span></h1>
             <p class="hero-subhead">EarthSpace is your single-point solution partner for architectural design,
                 engineering coordination, and turnkey construction. We build with clarity, precision, and control.</p>
-            <a href="#contact" class="btn btn-primary">Discuss Your Project</a>
+            <a href="javascript:void(0)" class="btn btn-primary contact-trigger">Discuss Your Project</a>
         </div>
         <div class="hero-overlay"></div>
     </header>
@@ -329,7 +331,7 @@
             <p class="footer-subhead">If you are planning a project and want certainty before committing capital, let’s
                 talk.</p>
 
-            <a href="mailto:Earthspaceps@gmail.com" class="btn btn-white btn-large">Contact Us</a>
+            <a href="javascript:void(0)" class="btn btn-white btn-large contact-trigger">Contact Us</a>
 
             <div class="social-links">
                 <a href="https://www.instagram.com/earthspace_ps" target="_blank" class="social-icon"
@@ -369,7 +371,7 @@
 
             <div class="contact-info mt-4">
                 <p><strong>EarthSpace Project Solutions LLP</strong></p>
-                <p>Kerala, India</p>
+                <p>Kozhikode, Kerala, India</p>
                 <p>Earthspaceps@gmail.com</p>
             </div>
             <div class="copyright">
@@ -433,8 +435,121 @@
             document.querySelectorAll('.fade-in-section').forEach(section => {
                 observer.observe(section);
             });
+
+            // Contact Modal Logic
+            const modal = document.getElementById('contact-modal');
+            const modalClose = document.querySelector('.modal-close');
+            const contactTriggers = document.querySelectorAll('.contact-trigger');
+            const contactForm = document.getElementById('contact-form');
+            const formStatus = document.getElementById('form-status');
+
+            const openModal = () => {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent scroll
+            };
+
+            const closeModal = () => {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            };
+
+            contactTriggers.forEach(trigger => {
+                trigger.addEventListener('click', openModal);
+            });
+
+            modalClose.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeModal();
+            });
+
+            // Form Submission (Google Sheets Integration)
+            const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwEUwDzEPfE8ayrs6jXawE-Nviw78O8RrteFcQUgUWgNimeH__JxwbmHR_f0KnzKi-z/exec';
+
+            contactForm.addEventListener('submit', e => {
+                e.preventDefault();
+                const submitBtn = contactForm.querySelector('button[type="submit"]');
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Sending...';
+                formStatus.textContent = 'Processing your request...';
+
+                const formData = new FormData(contactForm);
+
+                // For demonstration if no URL is provided, simulate success
+                if (!SCRIPT_URL || SCRIPT_URL.includes('...')) {
+                    setTimeout(() => {
+                        formStatus.style.color = '#2e7d32';
+                        formStatus.textContent = '✓ Thank you. We will contact you shortly.';
+                        contactForm.reset();
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Send Message';
+                        setTimeout(closeModal, 2000);
+                    }, 1500);
+                    return;
+                }
+
+                fetch(SCRIPT_URL, { method: 'POST', body: formData })
+                    .then(response => {
+                        formStatus.style.color = '#2e7d32';
+                        formStatus.textContent = '✓ Thank you. We will contact you shortly.';
+                        contactForm.reset();
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Send Message';
+                        setTimeout(closeModal, 2500);
+                    })
+                    .catch(error => {
+                        formStatus.style.color = '#c62828';
+                        formStatus.textContent = 'An error occurred. Please try again.';
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Send Message';
+                    });
+            });
         });
     </script>
+
+    <!-- Contact Modal HTML -->
+    <div id="contact-modal" class="modal-overlay">
+        <div class="modal-container">
+            <span class="modal-close">&times;</span>
+            <div class="modal-header">
+                <h2>Discuss Your Project</h2>
+                <p>Tell us about your development goals and we'll get back to you with a technical perspective.</p>
+            </div>
+            <form id="contact-form" class="contact-form">
+                <div class="form-group">
+                    <label for="modal-name">Full Name</label>
+                    <input type="text" id="modal-name" name="name" required placeholder="John Doe">
+                </div>
+                <div class="form-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div>
+                        <label for="modal-email">Email</label>
+                        <input type="email" id="modal-email" name="email" required placeholder="john@email.com">
+                    </div>
+                    <div>
+                        <label for="modal-phone">Phone</label>
+                        <input type="tel" id="modal-phone" name="phone" required placeholder="+91 00000 00000">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="modal-interest">Primary Interest</label>
+                    <select id="modal-interest" name="interest" required>
+                        <option value="" disabled selected>Select an option</option>
+                        <option value="Residential">Residential Development</option>
+                        <option value="Commercial">Commercial Project</option>
+                        <option value="Advisory">Development Advisory</option>
+                        <option value="Turnkey">Turnkey Construction</option>
+                        <option value="Other">Other Query</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="modal-message">Project Brief</label>
+                    <textarea id="modal-message" name="message" rows="4"
+                        placeholder="Briefly describe your land or project vision..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary full-width">Send Message</button>
+                <div id="form-status" class="form-status"></div>
+            </form>
+        </div>
+    </div>
 
     <div class="wa-buddy-container">
         <div id="wa-buddy-bubble" class="wa-buddy-bubble">
